@@ -4,6 +4,10 @@ body{
   background: black;
 }
 
+.system, .sun, .orbit{
+  transform-style: preserve-3d;
+}
+
 .system{
   margin: 0;
   list-style: none;
@@ -14,7 +18,7 @@ body{
   position: fixed;
   top: 50%;
   width: 100%;
-  transform: translate(0, -50%);
+  transform: translate(0, -50%) rotateX(75deg);
 
   container-type: inline-size;
 
@@ -31,6 +35,8 @@ body{
 .sun{
   width: 10cqi;
   background-color: yellow;
+
+  transform: rotateX(-90deg);
 }
 .orbit{
   width: 30cqi;
@@ -48,7 +54,9 @@ body{
 
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  translate: -50% -50%;
+
+  animation: invert linear 5s infinite;
 }
 
 @keyframes orbit{
@@ -57,5 +65,13 @@ body{
   }
   to{
     rotate: 360deg;
+  }
+}
+@keyframes invert{
+  from{
+    transform: rotateX(-90deg) rotateY(0deg);
+  }
+  to{
+    transform: rotateX(-90deg) rotateY(360deg);
   }
 }
