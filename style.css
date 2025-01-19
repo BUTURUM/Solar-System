@@ -35,4 +35,17 @@ body{
 .orbit{
   width: 30cqi;
   border: solid #ffffff80 3px;
+
+  position: relative;
+}
+.planet{
+  width: 5cqi;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  background-color: blue;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
