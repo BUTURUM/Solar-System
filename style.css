@@ -4,6 +4,32 @@ body{
   background: black;
 }
 
+.select-board{
+  margin: 0;
+  list-style: none;
+
+  padding: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+.select-planet{
+  color: white;
+  font-family: 'Trebuchet MS';
+  text-decoration: none;
+  font-size: larger;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-shadow: transparent 0 0 10px;
+
+  transition-property: color, text-shadow;
+  transition-duration: .5s;
+}
+
+.select-planet.current{
+  color: #81c4ff;
+  text-shadow: #81c4ff 0 0 10px;
+}
+
 .system, .sun, .orbit{
   transform-style: preserve-3d;
 }
@@ -58,6 +84,27 @@ body{
   translate: -50% -50%;
 
   animation: invert linear calc(var(--speed) * 5s) infinite;
+}
+
+.planet::after{
+  content: '';
+  background-color: white;
+
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: .5rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  height: 0;
+  width: 3px;
+
+  transition-property: height;
+  transition-duration: .5s;
+}
+
+.orbit.current .planet::after{
+  height: 8cqi;
 }
 
 @keyframes orbit{
