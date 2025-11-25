@@ -5,17 +5,19 @@ body{
 }
 
 .select-board{
-  margin: 0;
-  list-style: none;
-
   padding: 2rem;
   box-sizing: border-box;
   text-align: center;
+  
+  user-select: none;
 }
 .select-planet{
+  background: none;
+  border: none;
+  cursor: pointer;
+
   color: white;
   font-family: 'Trebuchet MS';
-  text-decoration: none;
   font-size: larger;
   margin-left: 1rem;
   margin-right: 1rem;
