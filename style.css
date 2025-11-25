@@ -32,21 +32,22 @@ body{
   text-shadow: #81c4ff 0 0 10px;
 }
 
-.system, .sun, .orbit{
-  transform-style: preserve-3d;
-}
-
 .system{
   margin: 0;
+  padding: 2rem;
+
   list-style: none;
 
-  padding: 2rem;
   box-sizing: border-box;
 
   position: fixed;
   top: 50%;
-  width: 100%;
-  transform: translate(0, -50%) rotateX(75deg);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+
+  height: min(100vh, 100vw);
+  aspect-ratio: 1 / 1;
 
   container-type: inline-size;
 
@@ -63,9 +64,6 @@ body{
 .sun{
   width: 14cqi;
   background: linear-gradient(135deg, #ffcc33, #ff6600);
-  z-index: 1;
-
-  transform: rotateX(-90deg);
 }
 .orbit{
   width: var(--orbit-diameter);
@@ -85,7 +83,7 @@ body{
   left: 50%;
   translate: -50% -50%;
 
-  animation: invert linear calc(var(--speed) * 5s) infinite;
+  animation: linear calc(var(--speed) * 5s) infinite;
 }
 
 .planet::after{
@@ -117,76 +115,52 @@ body{
     rotate: 360deg;
   }
 }
-@keyframes invert{
-  from{
-    transform: rotateX(-90deg) rotateY(0deg);
-  }
-  to{
-    transform: rotateX(-90deg) rotateY(360deg);
-  }
-}
 
 #mercury{
   --orbit-diameter: 18cqi;
-  --planet-diameter: 1cqi;
+  --planet-diameter: 2cqi;
   --speed: .24;
   --color: linear-gradient(135deg, #b0b0b0, #6c6c6c);
-
-  z-index: 9;
 }
 #venus{
   --orbit-diameter: 26cqi;
-  --planet-diameter: 3cqi;
+  --planet-diameter: 4cqi;
   --speed: .61;
   --color: linear-gradient(135deg, #f8c471, #e59866, #d68910);
-
-  z-index: 8;
 }
 #earth{
   --orbit-diameter: 34cqi;
-  --planet-diameter: 3cqi;
+  --planet-diameter: 4cqi;
   --speed: 1;
   --color: linear-gradient(135deg, #1e90ff, #32cd32, #ffffff);
-
-  z-index: 7;
 }
 #mars{
-  --orbit-diameter: 42cqi;
-  --planet-diameter: 2cqi;
+  --orbit-diameter: 41cqi;
+  --planet-diameter: 3cqi;
   --speed: 1.88;
   --color: linear-gradient(135deg, #ff7f50, #8b0000);
-
-  z-index: 6;
 }
 #jupiter{
   --orbit-diameter: 54cqi;
-  --planet-diameter: 7cqi;
+  --planet-diameter: 9cqi;
   --speed: 12;
   --color: linear-gradient(135deg, #d9a066, #8c5434);
-
-  z-index: 5;
 }
 #saturn{
   --orbit-diameter: 70cqi;
-  --planet-diameter: 6cqi;
+  --planet-diameter: 7cqi;
   --speed: 29.4;
   --color: linear-gradient(135deg, #f5deb3, #c19a6b);
-
-  z-index: 4;
 }
 #uranus{
   --orbit-diameter: 84cqi;
-  --planet-diameter: 4cqi;
+  --planet-diameter: 6cqi;
   --speed: 84;
   --color: linear-gradient(135deg, #afeeee, #40e0d0);
-
-  z-index: 3;
 }
 #neptune{
   --orbit-diameter: 96cqi;
-  --planet-diameter: 4cqi;
+  --planet-diameter: 6cqi;
   --speed: 165;
   --color: linear-gradient(135deg, #4169e1, #00bfff);
-  
-  z-index: 2;
 }
